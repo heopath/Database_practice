@@ -38,4 +38,16 @@ DELETE FROM User1 WHERE userid='A101';
 DELETE FROM User1 WHERE userid='A102' AND age=25;
 DELETE FROM User1 WHERE age >= 30;
 
+# 실습 2-6 테이블 컬럼 수정
+ALTER TABLE User1 ADD gender TINYINT;
+ALTER TABLE User1 ADD birth CHAR(10) AFTER name;
+ALTER TABLE User1 MODIFY gender CHAR(1);
+ALTER TABLE User1 MODIFY age TINYINT;
+ALTER TABLE User1 DROP gender;
+ALTER TABLE User1 DROP birth;
+
+# 실습 2-7, 테이블 복사
+CREATE TABLE User1_1 LIKE User1; -- User1 테이블을 가지고 User1_1 테이블 복사, 데이터는 복사 안됨
+INSERT INTO user1_1 SELECT * FROM User1; -- User1 테이블 데이터를 User1_1로 복사
+SELECT * FROM user1_1;
 
