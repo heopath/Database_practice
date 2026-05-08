@@ -194,3 +194,29 @@ END $$
 DELIMITER ;
 
 SELECT func_test1('1001'); -- 함수는 SELECT, 프로시저는 CALL
+
+DELIMITER $$
+CREATE FUNCTION func_test2(_price INT) RETURNS DOUBLE
+BEGIN
+    DECLARE bonus DOUBLE;
+    
+    IF (_price >= 100000) THEN
+   SET bonus = _price * 0.1;
+       ELSE
+   SET bonus = _price * 0.05;   
+       END IF;
+       
+RETURN bonus;
+END $$
+DELIMITER 
+
+SELECT 
+	empno,
+    year,
+    month,
+    price,
+    func_test2(price) as bonus
+FROM sale;
+
+SELECT func_test2(price) as bonus from sale;
+
