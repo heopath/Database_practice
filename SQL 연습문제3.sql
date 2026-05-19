@@ -141,7 +141,7 @@ FROM `Student` AS a, `Register` AS b WHERE a.stdNo = b.regStdNo;
 SELECT `stdName`, `stdNo`, `regLecNo` 
 FROM `Student` AS a 
 JOIN `Register` AS b 
-ON a.stdNo = b.regStdno;
+ON a.stdNo = b.regStdno where regLecNo = 349;
 
 # 실습 3-21
 SELECT
